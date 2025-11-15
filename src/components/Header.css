@@ -1,0 +1,42 @@
+/* Header.css */
+@keyframes bounceIn {
+  0% { transform: translateY(-50px); opacity: 0; }
+  60% { transform: translateY(10px); opacity: 1; }
+  80% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+.brand-animated {
+  animation: bounceIn 1.2s ease-out;
+  display: inline-block;
+}
+.bg-light{
+  background-color:rgb(237 208 219) !important;
+}
+.fontSet{
+    font-family: sans-serif;
+    font-size: 15px;
+    font-variant: all-small-caps;
+}
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.brandName {
+  color: #9B1B30;
+  font-family: 'Lobster', cursive;
+  font-size: 1.8rem;
+  white-space: nowrap;
+}
+
+.searchInput {
+  border-radius: 25px;
+  background-color: #ffe8ef;
+  border: none;
+  padding: 5px 10px;
+}
