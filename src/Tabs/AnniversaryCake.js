@@ -1,10 +1,13 @@
 import CakeMenu from "./CakeMenu";
+import { useState } from "react";
 function AnniversaryCake(){
+    const [sortOption, setSortOption] = useState("");
+  
    const cakes = [
   { 
     id: 1, 
     name: "Classic Red Velvet Romance", 
-    price: "₹899", 
+    price: "899", 
     rating: 4.5, 
     img: "/assets/anniversary/ac1.png", 
     desc: "A timeless red velvet cake with smooth cream cheese frosting, perfect for celebrating love and togetherness."
@@ -12,7 +15,7 @@ function AnniversaryCake(){
   { 
     id: 2, 
     name: "Choco Bliss Anniversary", 
-    price: "₹749", 
+    price: "749", 
     rating: 4.8, 
     img: "/assets/anniversary/ac2.png", 
     desc: "Indulge in layers of rich chocolate sponge, topped with a velvety chocolate mousse – the ultimate sweet treat for your anniversary."
@@ -20,7 +23,7 @@ function AnniversaryCake(){
   { 
     id: 3, 
     name: "Vanilla Elegance", 
-    price: "₹650", 
+    price: "650", 
     rating: 4.3, 
     img: "/assets/anniversary/ac3.png", 
     desc: "A soft, delicate vanilla cake with a light, fluffy texture, perfect for a sweet celebration of love and memories."
@@ -28,7 +31,7 @@ function AnniversaryCake(){
   { 
     id: 4, 
     name: "Chocolate Teddy Bliss", 
-    price: "₹699", 
+    price: "699", 
     rating: 4.7, 
     img: "/assets/anniversary/ac4.png", 
     desc: "A charming chocolate cake filled with sweet teddy bear decoration, bringing a playful touch to your special day."
@@ -36,7 +39,7 @@ function AnniversaryCake(){
   { 
     id: 5, 
     name: "Golden Love Fantasy", 
-    price: "₹899", 
+    price: "899", 
     rating: 4.4, 
     img: "/assets/anniversary/ac5.png", 
     desc: "A luxurious golden-themed cake adorned with delicate accents, perfect for celebrating a golden moment with your partner."
@@ -44,13 +47,19 @@ function AnniversaryCake(){
   { 
     id: 6, 
     name: "Strawberry Sweetheart", 
-    price: "₹750", 
+    price: "750", 
     rating: 4.9, 
     img: "/assets/anniversary/ac6.png", 
     desc: "A fresh and fruity strawberry-flavored cake topped with creamy layers, making your anniversary even sweeter."
   },
 ];
-
+ const sortedCakes = [...cakes].sort((a, b) => {
+        if (sortOption === "priceAsc") return a.price - b.price;
+        if (sortOption === "priceDesc") return b.price - a.price;
+        if (sortOption === "ratingAsc") return a.rating - b.rating;
+        if (sortOption === "ratingDesc") return b.rating - a.rating;
+        return 0; // default, no sorting
+    });
         // Actual code
     // const [liked,setLiked] = useState({});
     // const renderStars = (rating)=>{
@@ -70,8 +79,21 @@ function AnniversaryCake(){
     return(
         <div className="container my-5">
             <h2 className="text-center mb-4 theme-title">🎂 Anniversary Cakes 🎉</h2>
-            <div className="row justify-content-center">
-                {cakes.map((cake)=>(
+             <div className="d-flex justify-content-center mb-4">
+                <select 
+                    className="form-select w-auto" 
+                    value={sortOption} 
+                    onChange={(e) => setSortOption(e.target.value)}
+                >
+                    <option value="">Sort By</option>
+                    <option value="priceAsc">Price: Low to High</option>
+                    <option value="priceDesc">Price: High to Low</option>
+                    <option value="ratingAsc">Rating: Low to High</option>
+                    <option value="ratingDesc">Rating: High to Low</option>
+                </select>
+            </div>
+            <div className="row justify-content-center" style={{ width: "70%" }}>
+                {sortedCakes.map((cake)=>(
                     <div className="col-sd-6 col-md-4 mb-4" key={cake.id}>
                          <CakeMenu cake={cake} />
                     </div>

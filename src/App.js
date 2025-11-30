@@ -14,6 +14,8 @@ import PaymentSection from './cart/PaymentSection';
 import TrackOrder from './cart/TrackOrder';
 import Cart from './cart/Cart';
 import { CartProvider } from './cart/CartContext';
+import OrderHistory from './components/OrderHistory';
+import ForgotPassword from './auth/forgotPassword';
 function App() {
   return (
   // <Router>
@@ -37,10 +39,13 @@ function App() {
             <Route path="cart" element={<Cart />} />
             <Route path="track-order" element={<TrackOrder />} />
             <Route path='payment' element={<PaymentSection />} />
+             <Route path='order-history' element={<OrderHistory />} />
+           
             <Route path="*" element={<h2 style={{padding:"20px"}}>Page Not Found</h2>} />
         </Route>
            <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+         <Route path='/forgot-password' element={<ForgotPassword />} />
       </Routes>
     </BrowserRouter>
     </CartProvider>

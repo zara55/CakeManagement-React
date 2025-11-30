@@ -32,8 +32,8 @@ function CakeMenu({cake}){
                                 <p className={styles.cakePrice}>{cake.price}</p>
                                 <div className={styles.cakeRating}>
                                     {renderStars(cake.rating)} {(cake.rating)}
-                                    <button className={`${styles.heartBtn} ${liked?styles.clicked:''}`}
-                                    onClick={toggleClick}> <i className="fas fa-heart"></i></button>
+                                    {/* <button className={`${styles.heartBtn} ${liked?styles.clicked:''}`}
+                                    onClick={toggleClick}> <i className="fas fa-heart"></i></button> */}
                                 
                                 </div>
                             </div>

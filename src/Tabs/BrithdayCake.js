@@ -1,10 +1,13 @@
 import CakeMenu from "./CakeMenu";
+import { useState } from "react";
 function BrithdayCake(){
+  const [sortOption, setSortOption] = useState("");
+ 
     const cakes = [
   { 
     id: 1, 
     name: "Black Forest Bliss", 
-    price: "₹899", 
+    price: "899", 
     rating: 4.5, 
     img: "/assets/brithday/blackForest.png", 
     desc: "Indulge in the rich layers of chocolate sponge, whipped cream, and cherries. A perfect combination for your sweet tooth."
@@ -12,7 +15,7 @@ function BrithdayCake(){
   { 
     id: 2, 
     name: "Choco Truffle Fantasy", 
-    price: "₹749", 
+    price: "749", 
     rating: 4.8, 
     img: "/assets/brithday/chocolate.png", 
     desc: "A dream come true for chocolate lovers! Smooth chocolate truffle filling wrapped in a decadent chocolate cake."
@@ -20,7 +23,7 @@ function BrithdayCake(){
   { 
     id: 3, 
     name: "Vanilla Pinata Surprise", 
-    price: "₹650", 
+    price: "650", 
     rating: 4.3, 
     img: "/assets/brithday/fruit.png", 
     desc: "A soft and fluffy vanilla cake filled with a delightful surprise inside – perfect for every celebration!"
@@ -28,7 +31,7 @@ function BrithdayCake(){
   { 
     id: 4, 
     name: "Butterscotch Delight", 
-    price: "₹699", 
+    price: "699", 
     rating: 4.7, 
     img: "/assets/brithday/fudge.png", 
     desc: "A rich and creamy butterscotch cake with caramelized nuts, bringing a unique flavor to your taste buds."
@@ -36,7 +39,7 @@ function BrithdayCake(){
   { 
     id: 5, 
     name: "Pista Magic", 
-    price: "₹899", 
+    price: "899", 
     rating: 4.4, 
     img: "/assets/brithday/pista.png", 
     desc: "A delicious pista-flavored cake with creamy layers, perfect for those who love a nutty and aromatic touch."
@@ -44,7 +47,7 @@ function BrithdayCake(){
   { 
     id: 6, 
     name: "Strawberry Dream", 
-    price: "₹750", 
+    price: "750", 
     rating: 4.9, 
     img: "/assets/brithday/strawberry.png", 
     desc: "Sweet, fresh strawberries blend perfectly with the soft sponge cake, creating a dreamy, refreshing experience."
@@ -52,19 +55,39 @@ function BrithdayCake(){
   { 
     id: 7, 
     name: "Christmas Truffle Cake", 
-    price: "₹670", 
+    price: "670", 
     rating: 4.0, 
     img: "/assets/brithday/truffle.png", 
     desc: "A luxurious, festive chocolate truffle cake with rich flavors and a velvety smooth texture, perfect for the holidays."
   },
 ];
-
+  const sortedCakes = [...cakes].sort((a, b) => {
+        if (sortOption === "priceAsc") return a.price - b.price;
+        if (sortOption === "priceDesc") return b.price - a.price;
+        if (sortOption === "ratingAsc") return a.rating - b.rating;
+        if (sortOption === "ratingDesc") return b.rating - a.rating;
+        return 0; // default, no sorting
+    });
 
     return(
         <div className="container my-5">
-      <h2 className="text-center mb-4 theme-title">🎂 Themed Cakes 🎉</h2>
-      <div className="row justify-content-center">
-        {cakes.map((cake) => (
+      <h2 className="text-center mb-4 theme-title">🎂 Brithday Cakes 🎉</h2>
+        <div className="d-flex justify-content-center mb-4">
+                <select 
+                    className="form-select w-auto" 
+                    value={sortOption} 
+                    onChange={(e) => setSortOption(e.target.value)}
+                >
+                    <option value="">Sort By</option>
+                    <option value="priceAsc">Price: Low to High</option>
+                    <option value="priceDesc">Price: High to Low</option>
+                    <option value="ratingAsc">Rating: Low to High</option>
+                    <option value="ratingDesc">Rating: High to Low</option>
+                </select>
+            </div>
+
+      <div className="row justify-content-center"style={{ width: "70%" }}>
+        {sortedCakes.map((cake) => (
           <div className="col-sm-6 col-md-4 mb-4" key={cake.id}>
             <CakeMenu cake={cake}/>
           </div>

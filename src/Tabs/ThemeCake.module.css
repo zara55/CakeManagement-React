@@ -2,9 +2,14 @@
   border-radius: 12px;
   overflow: hidden;
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
   text-align: center;
-  background: #fff;
+  /* background: #fff; */
+  background-color: #fff8f0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s 
+ease, box-shadow 0.3s 
+ease;
 }
 
 .cakeCard:hover {
@@ -31,9 +36,13 @@
 
 .cakeName {
   font-size: 1rem;
-  font-weight: 600;
+  /* font-weight: 600; */
   margin: 5px 0;
-  color: #c15b78;
+  /* color: #c15b78; */
+      font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: #8B4513;
+    font-size: 1.1rem;
 }
 
 .cakePrice {
@@ -183,7 +192,7 @@ img {
 
 .rating {
   font-size: 1.3rem;
-  color: #ffcc00;
+  color: #555;
   font-weight: bold;
 }
 
