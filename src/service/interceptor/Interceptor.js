@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/api"; // your backend base URL
-
+//const API_URL = "http://localhost:8080/api"; // your backend base URL
+const API_URL = "https://cakemanagement-java-production.up.railway.app/api";
 const api = axios.create({
   baseURL: API_URL,
 });
