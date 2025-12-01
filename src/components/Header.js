@@ -110,9 +110,9 @@ function Header({ searchItem, setSearchItem }) {
 
   const navigate = useNavigate();
 
-  const onSearch = (value) => {
-    setSearchItem(value);
-  };
+  //const onSearch = (value) => {
+    //setSearchItem(value);
+  //};
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
