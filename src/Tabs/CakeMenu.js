@@ -15,9 +15,9 @@ function CakeMenu({cake}){
                 stars.push(<i key="half" className="fas fa-star-half-alt"></i>);
             return stars;
         }
-        const toggleClick =()=>{
-           setLiked(!liked);
-        } 
+        //const toggleClick =()=>{
+           //setLiked(!liked);
+       // } 
         const navigate = useNavigate();
 
         const handleClick = () => {
