@@ -26,7 +26,7 @@ const CakeDetail = () => {
 
   const stars = Array.from({ length: 5 }, (_, i) => i < cake.rating ? "★" : "☆");
   const images = [cake.img];
-  const weightOptions = [0.5, 1, 2, 3];
+  //const weightOptions = [0.5, 1, 2, 3];
 
   const togglePopup = (msg) => {
     setPopupMsg(msg);
