@@ -117,7 +117,7 @@ import { deleteCartItemAPI } from "../service/commonService";
 function PaymentSection() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { cartItems, setCartItems } = useContext(CartContext);
+  const { setCartItems } = useContext(CartContext);
 
   const order = location.state;
 
