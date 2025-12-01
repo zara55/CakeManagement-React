@@ -1,4 +1,4 @@
-import { AppRegistrationTwoTone } from "@mui/icons-material";
+
 import api from "./interceptor/Interceptor";
 export const createOrder = (orderData) => {
 return api.post("/orders/details", orderData); 
