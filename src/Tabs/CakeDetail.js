@@ -35,6 +35,7 @@ const CakeDetail = () => {
 
   const handleAddToCart = async () => {
     const item = {
+      productId: cake.id,
       orderName: cake.name,
       imageUrl: mainImg,
       price: Number(cake.price.replace("₹", "")),
