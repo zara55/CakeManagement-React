@@ -3,7 +3,7 @@ import styles from './ThemeCake.module.css'
 import { useNavigate } from "react-router-dom";
 
 function CakeMenu({cake}){
-        const [liked, setLiked] = useState(false);
+        //const [liked, setLiked] = useState(false);
 
         const renderStars = (rating)=>{
             const fullStars = Math.floor(rating);
