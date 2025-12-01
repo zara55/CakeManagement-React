@@ -32,7 +32,7 @@ function Login() {
     }
 
     try {
-      const response = await axios.post("http://localhost:8080/api/cm/login", {
+      const response = await axios.post("https://cakemanagement-java-production.up.railway.app/api/cm/login", {
         username,
         password,
       });
